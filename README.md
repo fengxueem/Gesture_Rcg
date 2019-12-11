@@ -1,7 +1,12 @@
 # Gesture_Rcg
-<script type="text/javascript">
+This repo will record everything of building a DL model recognizing human hand gesture. Things are arranged chronologically, I think it's a good way to leave the trace of how to solve different problems.
+<details>
+<summary>中文</summary>
+我会在这里记录自己开发手势识别深度学习算法的所有步骤，基本上按时间顺序记录。希望可以为未来翻看时候留下发现问题解决问题的思路流程。
+</details>
+<!-- <script type="text/javascript">
     var all_lang = ["eng", "cn"];
-    var hide_elements_by_class = function(item, index){
+    var hideElementsByClass = function(item, index){
     	var selected_lang_elem = document.getElementsByClassName(item);
         for (var i=0, len=selected_lang_elem.length|0; i<len; i=i+1|0) {
             selected_lang_elem[i].hidden=true;
@@ -15,7 +20,7 @@
      			to_be_hide.push(all_lang[i]); 
    			}
 		}
-        to_be_hide.forEach(hide_elements_by_class);
+        to_be_hide.forEach(hideElementsByClass);
         // 显示选中class
         var selected_lang_elem = document.getElementsByClassName(t.value);
         for (var i=0, len=selected_lang_elem.length|0; i<len; i=i+1|0) {
@@ -28,12 +33,13 @@
  <option value='eng' selected>English</option>
  <option value='cn'>中文</option>
  </select>
-</form> 
+</form>  -->
 ## Install Anaconda & Pip
-+ <p class="eng">As is well known for many DL developers, CNN is an art of data. In other words, CNN is a data-driven technique. Python is a perfect language choice on most cases where collecting and processing image data are highly involved. Anaconda provides most popular software packages to help us fulfill various image-related tasks. Please follow this official guide to install anaconda first(https://docs.anaconda.com/anaconda/install/linux/). </p>
-  <p class="cn">
-  众所周知深度学习是一门数据驱动的技术，我们在这个项目里选择使用 Python 进行大多数的图像处理工作。Anaconda 作为一个管理 Python 环境的工具，在未来的很多任务中，我们会很依赖它提供的帮助。请先依照官方指南完成 Anaconda 安装工作。
-  </p>
++ As is well known for many DL developers, CNN is an art of data. In other words, CNN is a data-driven technique. Python is a perfect language choice on most cases where collecting and processing image data are highly involved. Anaconda provides most popular software packages to help us fulfill various image-related tasks. Please follow this [official guide](https://docs.anaconda.com/anaconda/install/linux/) to install anaconda first.
+  <details>
+  <summary>中文</summary>
+  众所周知深度学习是一门数据驱动的技术，我们在这个项目里选择使用 Python 进行大多数的图像处理工作。Anaconda 作为一个管理 Python 环境的工具，在未来的很多任务中，我们会很依赖它提供的帮助。请先依照官方指南 https://docs.anaconda.com/anaconda/install/linux/ 完成 Anaconda 安装工作。
+  </details>
   Once anaconda is properly installed, we need to create a seperate python environment for this project. Since we will use PaddlePaddle for DL development, let's call this new env 'paddle3_6' indicating a python==3.6 env.
   <details>
   <summary>中文</summary>
@@ -60,7 +66,7 @@
 
   > conda install pip # 安装 pip / install pip
   > pip install --upgrade pip # 升级 pip / upgrade pip
-  > pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # 配置清华源
+  > pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple # 配置清华源 / setup tsinghua as default
 ## Install OpenCV & Access Webcam
 OpenCV Python API should be installed via pip instead of Anaconda.
 <details>
@@ -71,8 +77,8 @@ OpenCV Python API should be installed via pip instead of Anaconda.
 > conda install pyqt # 安装 Qt 图形界面 python 接口 / install Qt GUI python api
 > pip install opencv-contrib-python==4.1.2.30 # 安装 opencv4 python 接口 / install opencv4 python api
 
-Then our first python script rendering webcam on a Qt window should be something like data/util/webcam_render.py. Good to go from here. If you wanna learn more about OpenCV Python, check out this link: https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html
+Then our first python script rendering webcam on a Qt window should be something like data/util/webcam_render.py. Good to go from here. If you wanna learn more about OpenCV Python, check out this [link](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html). Now, it's time to save lots of images for future training purposes. And a successful model should be fed with clean and extremely adequate chunks of images, say 30k(25k for training, 5k for testing) for each class.
 <details>
 <summary>中文</summary>
-OpenCV 的 Python 接口安装结束后需要测试一下，那就打开一个摄像头吧！更多的 OpenCV Python 接口使用请看 https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html
+OpenCV 的 Python 接口安装结束后需要测试一下，那就打开一个摄像头吧,示例代码可以参考 data/util/webcam_render.py。更多的 OpenCV Python 接口使用，请看https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html。下一步是获取足够多干净的图片作为模型训练用途(25k张/类)以及测试集(5k张/类)。
 </details>
