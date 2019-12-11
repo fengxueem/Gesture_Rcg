@@ -1,10 +1,39 @@
 # Gesture_Rcg
+<script type="text/javascript">
+    var all_lang = ["eng", "cn"];
+    var hide_elements_by_class = function(item, index){
+    	var selected_lang_elem = document.getElementsByClassName(item);
+        for (var i=0, len=selected_lang_elem.length|0; i<len; i=i+1|0) {
+            selected_lang_elem[i].hidden=true;
+        }
+    };
+    var updateLang = function(t){
+        // 隐藏其余class
+        var to_be_hide = [];
+        for( var i = 0; i < all_lang.length; i++){ 
+   			if ( all_lang[i] != t.value) {
+     			to_be_hide.push(all_lang[i]); 
+   			}
+		}
+        to_be_hide.forEach(hide_elements_by_class);
+        // 显示选中class
+        var selected_lang_elem = document.getElementsByClassName(t.value);
+        for (var i=0, len=selected_lang_elem.length|0; i<len; i=i+1|0) {
+            selected_lang_elem[i].hidden=false;
+        }
+    };
+</script>
+<form>
+ <select onchange="updateLang(this)" id="sel_lang">
+ <option value='eng' selected>English</option>
+ <option value='cn'>中文</option>
+ </select>
+</form> 
 ## Install Anaconda & Pip
-+ As is well known for many DL developers, CNN is an art of data. In other words, CNN is a data-driven technique. Python is a perfect language choice on most cases where collecting and processing image data are highly involved. Anaconda provides most popular software packages to help us fulfill various image-related tasks. Please follow this official guide to install anaconda first(https://docs.anaconda.com/anaconda/install/linux/).
-  <details>
-  <summary>中文</summary>
++ <p class="eng">As is well known for many DL developers, CNN is an art of data. In other words, CNN is a data-driven technique. Python is a perfect language choice on most cases where collecting and processing image data are highly involved. Anaconda provides most popular software packages to help us fulfill various image-related tasks. Please follow this official guide to install anaconda first(https://docs.anaconda.com/anaconda/install/linux/). </p>
+  <p class="cn">
   众所周知深度学习是一门数据驱动的技术，我们在这个项目里选择使用 Python 进行大多数的图像处理工作。Anaconda 作为一个管理 Python 环境的工具，在未来的很多任务中，我们会很依赖它提供的帮助。请先依照官方指南完成 Anaconda 安装工作。
-  </details>
+  </p>
   Once anaconda is properly installed, we need to create a seperate python environment for this project. Since we will use PaddlePaddle for DL development, let's call this new env 'paddle3_6' indicating a python==3.6 env.
   <details>
   <summary>中文</summary>
