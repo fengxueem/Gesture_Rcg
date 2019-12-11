@@ -34,6 +34,7 @@ This repo will record everything of building a DL model recognizing human hand g
  <option value='cn'>中文</option>
  </select>
 </form>  -->
+
 ## Install Anaconda & Pip
 + As is well known for many DL developers, CNN is an art of data. In other words, CNN is a data-driven technique. Python is a perfect language choice on most cases where collecting and processing image data are highly involved. Anaconda provides most popular software packages to help us fulfill various image-related tasks. Please follow this [official guide](https://docs.anaconda.com/anaconda/install/linux/) to install anaconda first.
   <details>
