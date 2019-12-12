@@ -89,3 +89,17 @@ Then our first python script rendering webcam on a Qt window should be something
 <summary>中文</summary>
 OpenCV 的 Python 接口安装结束后需要测试一下，那就打开一个摄像头吧,示例代码可以参考 data/util/webcam_render.py。更多的 OpenCV Python 接口使用，请看https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_tutorials.html。下一步是获取足够多干净的图片作为模型训练用途(25k张/类)以及测试集(5k张/类)。
 </details>
+
+## Create custom dataset
+In real world applications, a prerequisite for developing a working DL model is to generate enough images captured by the camera you choose for inferencing stage. There is a simple python script(data/util/gen_data.py) for generating black and white images with the size of 112 * 112. Running this script under different lighting conditions and ask as many people you can find as possible to be a 5 to 10 mins hand model. We will end up with a big enough dataset.
+Before you run the script, please install libsvm and an awesome non-reference image quality repo named [BRISQUE](https://github.com/bukalapak/pybrisque).
+<details>
+<summary>中文</summary>
+在实际场景中，每个深度学习算法都必须与某个参数的相机对应。当没有光学工程师帮我们调节相机成像时，我们就只能用未来执行该算法的相机采图。这里写了一个简单采图脚本，采集大小为112*112的灰度图。一共计划每类手势30k张图，因此找越多的人采图越好，并且尽可能在不同的光照条件下采集。在开始采集前，需要在 python 环境下安装 livsvm 与 pybrisque。
+</details>
+
+```bash
+pip install libsvm # 安装 libsvm / install libsvm
+pip install pybrisque # 安装 pybrisque / install pybrisque
+python data/util/gen_data.py 45 awesome_ 1500 # 采集模糊度小于45的1500张图像，文件名前缀awesome_ / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome_"
+```
