@@ -23,9 +23,9 @@ def main(args):
     start_recording = False
     # make a new folder storing images
     today_str = datetime.now().strftime("%y%m%d%H%M%S")
-    saving_folder_path = "./" + today_str
+    saving_folder_path = "./" + today_str + '_' + args.file_prefix
     os.mkdir(saving_folder_path)
-    saving_img_path = saving_folder_path + '/' + args.file_prefix
+    saving_img_path = saving_folder_path + '/' + args.file_prefix + '_'
     print("Save images to " + saving_img_path)
     brisq = BRISQUE()
     while(True):
@@ -70,7 +70,7 @@ def main(args):
             keypress = cv2.waitKey(1) & 0xFF
 
             # if the user pressed "q", then stop looping
-            if keypress == ord("q") or image_num > int(args.img_num):
+            if keypress == ord("q") or image_num > int(args.img_num) - 1:
                 break
         
             if keypress == ord("s"):

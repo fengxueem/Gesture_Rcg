@@ -95,11 +95,11 @@ In real world applications, a prerequisite for developing a working DL model is 
 Before you run the script, please install libsvm and an awesome non-reference image quality repo named [BRISQUE](https://github.com/bukalapak/pybrisque).
 <details>
 <summary>中文</summary>
-在实际场景中，每个深度学习算法都必须与某个参数的相机对应。当没有光学工程师帮我们调节相机成像时，我们就只能用未来执行该算法的相机采图。这里写了一个简单采图脚本，采集大小为112*112的灰度图。一共计划每类手势30k张图，因此找越多的人采图越好，并且尽可能在不同的光照条件下采集。在开始采集前，需要在 python 环境下安装 livsvm 与 pybrisque。
+在实际场景中，由于获取任务需求数据困难，深度学习算法可能需要与某种参数的相机对应，达到单个模型过拟合且鲁棒性差的效果。当没有光学工程师帮我们调节相机成像时，我们就只能用未来执行该算法的相机采图。这里写了一个简单采图脚本，采集大小为112*112的灰度图。一共计划每类手势30k张图，因此找越多的人采图越好，并且尽可能在不同的光照条件下采集。在开始采集前，需要在 python 环境下安装 livsvm 与 pybrisque，用于判别图像质量。
 </details>
 
 ```bash
 pip install libsvm # 安装 libsvm / install libsvm
 pip install pybrisque # 安装 pybrisque / install pybrisque
-python data/util/gen_data.py 45 awesome_ 1500 # 采集模糊度小于45的1500张图像，文件名前缀awesome_ / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome_"
+python data/util/gen_data.py 45 awesome 1500 # 采集模糊度小于45的1500张图像，文件名前缀awesome / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome"
 ```
