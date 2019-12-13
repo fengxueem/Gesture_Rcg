@@ -1,6 +1,7 @@
 import cv2
 import imutils
 import numpy as np
+import math
 import os, sys
 from argparse import ArgumentParser
 from brisque import BRISQUE
@@ -42,7 +43,9 @@ def main(args):
             # convert the roi to grayscale and blur it
             gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
             image_quality = brisq.get_score(gray)
-            
+            # sometimes brisq outputs nan, we should ignore these anomolies
+            if math.isnan(image_quality):
+                continue
             if start_recording and image_quality < float(args.ref_quality):
                 file_full_path = saving_img_path + str(image_num) + ".jpg"
                 cv2.imwrite(file_full_path, gray,[int(cv2.IMWRITE_JPEG_QUALITY), 100])
