@@ -53,7 +53,7 @@ def main(args):
                 while(os.path.getsize(file_full_path) < 1):
                     cv2.imwrite(file_full_path, gray,[int(cv2.IMWRITE_JPEG_QUALITY), 100])
                 image_num += 1
-                print('%d images saved\r' % (image_num))
+                print('%d images saved\r' % (image_num), end="")
             
             # specify the font and draw the key using puttext
             font = cv2.FONT_HERSHEY_SIMPLEX
