@@ -1,0 +1,19 @@
+{
+    "all_class_images": 60000,
+    "all_class_name": "gesture",
+    "all_class_sum": 2,
+    "class_detail": [
+        {
+            "class_label": 0,
+            "class_name": "awesome_1",
+            "class_test_images": 5000,
+            "class_trainer_images": 25000
+        },
+        {
+            "class_label": 1,
+            "class_name": "fist_0",
+            "class_test_images": 5000,
+            "class_trainer_images": 25000
+        }
+    ]
+}
