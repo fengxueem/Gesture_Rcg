@@ -101,5 +101,30 @@ Before you run the script, please install libsvm and an awesome non-reference im
 ```bash
 pip install libsvm # 安装 libsvm / install libsvm
 pip install pybrisque # 安装 pybrisque / install pybrisque
-python data/util/gen_data.py 45 awesome 1500 # 采集模糊度小于45的1500张图像，文件名前缀awesome / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome"
+python data/util/gen_data.py 45 awesome 15000 # 采集模糊度小于45的1500张图像，文件名前缀awesome / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome"
+python data/util/gen_data.py 42 fist 15000 # 采集模糊度小于45的1500张图像，文件名前缀awesome / generate and save 1500 images with max blurring rate 45, save them with a prefix "awesome"
+```
+
+## Data Augmentation
+Once data is ready, the origin copy should be prefectly stored in a safe place. Again, data is the gold mine. Then we should apply different augmentation methods to enrich the image space. There is an easy-to-use python library for image augmentation, [Augmentor](https://github.com/mdbloice/Augmentor). For now, I just apply horizontal flip to the origin copy and rename to a seperate folder(Details in data/util/make_dataset.py)
+<details>
+<summary>中文</summary>
+当原始数据收集完成后，必须保证其安全性，做好数据保护。因为在深度学习技术中数据比模型比框架重要很多。下一步的数据增强，推荐一个 python 库 Augmentor。 它实现了流水线式的数据增强。目前我们仅适用左右翻转这一种增强方式，模拟左右手的效果，详情可见 data/util/make_dataset.py。
+</details>
+
+```bash
+pip install Augmentor # 安装 Augmentor / install Augmentor
+python data/util/make_dataset.py data/raw/fist data/dataset/fist # 对拳头做数据增强，并另存到 data/dataset/fist 文件夹下 / data augmentation on fist dataset and reorganization them into data/dataset/fist
+python data/util/make_dataset.py data/raw/awesome data/dataset/awesome # 对 666 手势做数据增强，并另存到 data/dataset/awesome 文件夹下 / data augmentation on awesome dataset and reorganization them into data/dataset/awesome
+```
+
+## List Data input for PaddlePaddle
+Every DL framework holds its own data format or multiple formats. On PaddlePaddle1.6, preparing to train a classfication model, all we need to do is make 2 files, one containing all training images with label, the other containing all testing images with label. Details on data/util/make_train_test_list.py
+<details>
+<summary>中文</summary>
+每种深度学习框架都有其独特的训练数据格式，有时候还支持多种不同的格式。对于 1.6 版本的 PaddlePaddle，我们在训练分类模型时只需要准备 2 个文本文件分别列出训练数据路径与其标签和测试数据路径与其标签。详情可见 data/util/make_train_test_list.py。
+</details>
+
+```bash
+python data/util/make_train_test_list.py ./ data/dataset/ gesture # 制作训练测试数据列表 / List data input for PaddlePaddle
 ```
