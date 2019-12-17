@@ -33,16 +33,16 @@ class SqueezeNet():
                 param_attr=fluid.param_attr.ParamAttr(name="conv1_weights"),
                 bias_attr=ParamAttr(name='conv1_offset'))
         pool_1 = fluid.layers.pool2d(
-                conv_1, pool_size=3, pool_stride=2, pool_type='max')
+                conv_1, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
         conv = self.make_fire(pool_1, 16, 64, 64, name='fire2')
         conv = self.make_fire(conv, 16, 64, 64, name='fire3')
         pool_2 = fluid.layers.pool2d(
                 conv, pool_size=3, pool_stride=2, pool_type='max')
         conv = self.make_fire(pool_2, 32, 128, 128, name='fire4')
         conv = self.make_fire(conv, 32, 128, 128, name='fire5')
-        conv = fluid.layers.pool2d(
-                conv, pool_size=3, pool_stride=2, pool_type='max')
-        conv = self.make_fire(conv, 48, 192, 192, name='fire6')
+        pool_3 = fluid.layers.pool2d(
+                conv, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
+        conv = self.make_fire(pool_3, 48, 192, 192, name='fire6')
         conv = self.make_fire(conv, 48, 192, 192, name='fire7')
         conv = self.make_fire(conv, 64, 256, 256, name='fire8')
         conv = self.make_fire(conv, 64, 256, 256, name='fire9')
@@ -54,9 +54,9 @@ class SqueezeNet():
             act='relu',
             param_attr=fluid.param_attr.ParamAttr(name="conv10_weights"),
             bias_attr=ParamAttr(name='conv10_offset'))
-        conv = fluid.layers.pool2d(conv, pool_type='avg', global_pooling=True)
-        out = fluid.layers.flatten(conv)
-        return out, conv_1
+        pool_4 = fluid.layers.pool2d(conv, pool_type='avg', global_pooling=True)
+        out = fluid.layers.flatten(pool_4)
+        return out, conv
 
     def make_fire_conv(self,
                        input,
