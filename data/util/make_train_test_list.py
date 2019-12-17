@@ -21,7 +21,7 @@ def main(args):
     # 清空原来的数据
     with open(data_list_path + "test.list", 'w') as f:
         pass
-    with open(data_list_path + "trainer.list", 'w') as f:
+    with open(data_list_path + "train.list", 'w') as f:
         pass
     # 总图像数
     all_class_images = 0
@@ -36,7 +36,7 @@ def main(args):
         # 每个类别的信息
         class_detail_list = {}
         test_sum = 0
-        trainer_sum = 0
+        train_sum = 0
         # 统计每个类别有多少张图片
         # 获取所有图片
         class_sum = 0
@@ -49,10 +49,10 @@ def main(args):
                 test_sum += 1                                       #test_sum测试数据的数目
                 class_test_list.append(name_path)
             else:
-                trainer_sum += 1                                    #trainer_sum测试数据的数目
+                train_sum += 1                                    
                 class_train_list.append(name_path)
             class_sum += 1                                          #每类图片的数目
-        with open(data_list_path + "trainer.list", 'a') as f:
+        with open(data_list_path + "train.list", 'a') as f:
             for img in class_test_list:
                 f.write(img + "\t%d" % class_label + "\n")#class_label 标签：0,1,2
         with open(data_list_path + "test.list", 'a') as f:
@@ -62,7 +62,7 @@ def main(args):
         class_detail_list['class_name'] = class_dir             #类别名称，如jiangwen
         class_detail_list['class_label'] = class_label          #类别标签，0,1,2
         class_detail_list['class_test_images'] = test_sum       #该类数据的测试集数目
-        class_detail_list['class_trainer_images'] = trainer_sum #该类数据的训练集数目
+        class_detail_list['class_train_images'] = train_sum #该类数据的训练集数目
         class_detail.append(class_detail_list)         
         class_label += 1                                        #class_label 标签：0,1,2
         all_class_images += class_sum                           #所有类图片的数目
