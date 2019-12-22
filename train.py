@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+import math
 from multiprocessing import cpu_count
 import numpy as np
 import os, sys
@@ -37,12 +38,15 @@ def train_reader(train_list, batch, buffered_size=1024):
             for line in lines:
                 img_path, lebel = line.strip().split('\t')
                 yield img_path, int(lebel) 
+    with open(train_list, 'r') as f:
+        lines = [line.strip() for line in f]
+        total_batch = len(lines) / batch
     return paddle.batch(paddle.reader.shuffle(paddle.reader.xmap_readers(mapper,
                                                                          reader,
                                                                          cpu_count(),
                                                                          buffered_size),
                                               buf_size=buffered_size),
-                        batch_size=batch)
+                        batch_size=batch), total_batch
 
 # define reader for testing data
 def test_reader(test_list, batch, buffered_size=1024):
@@ -93,22 +97,33 @@ def main(args):
     feeder = fluid.DataFeeder(feed_list=[image, label], place=place)
     # batch
     batch_size = int(args.batch_size)
-    train_data_reader = train_reader(args.train_list_path, batch_size)
+    train_data_reader, total_batch = train_reader(args.train_list_path, batch_size)
     test_data_reader = test_reader(args.test_list_path, batch_size)
     epoch = int(args.epoch)
     print('Start training...')
     for pass_id in range(epoch):
         train_loss = 0
+        train_loss_list = []
+        train_acc_list = []
+        progress_bar_len = 10
+        batch_len = total_batch / progress_bar_len
+        last_work_len = 0
         for batch_id, data in enumerate(train_data_reader()):
+            work_len = math.ceil(batch_id / batch_len)
             batch_start_timestamp = time.time()
             train_loss, train_acc = exe.run(
                 program=train_program,                            
                 feed=feeder.feed(data),                                         
                 fetch_list=[loss, accuracy])    
-            if batch_id % 50 == 0:
+            train_loss_list.append(train_loss[0])
+            train_acc_list.append(train_acc[0])
+            if work_len > last_work_len + 1:
                 batch_end_timestamp = time.time()   
-                print("\nEpoch[%d] Batch[%d] %.3fs, Loss: %f, Acc: %.4f%%" % 
-                (pass_id, batch_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
+                last_work_len = work_len
+                print("|" + ">" * work_len + "-" * (progress_bar_len - work_len) + "| Epoch[%d] %.3fs, Current batch loss: %.6f, acc: %.3f%%" % 
+                (pass_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
+        # print average loss and accuracy during this epoch
+        print("Sum: Epoch[%d], Avg loss: %.6f, Avg acc %.2f%%" % (pass_id, np.mean(train_loss_list), 100.0 * np.mean(train_acc_list)))
         # test after every 5 epoch
         if pass_id % 5 == 0:
             test_accs = []                                                           
