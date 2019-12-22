@@ -123,7 +123,7 @@ def main(args):
                 print("|" + ">" * work_len + "-" * (progress_bar_len - work_len) + "| Epoch[%d] %.3fs, Current batch loss: %.6f, acc: %.3f%%" % 
                     (pass_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
         # print average loss and accuracy during this epoch
-        print("Sum: Epoch[%d], Avg loss: %.6f, Avg acc %.2f%%" % (pass_id, np.mean(train_loss_list), 100.0 * np.mean(train_acc_list)))
+        print("Sum: Epoch[%d], Avg loss: %.6f, Avg acc %.3f%%" % (pass_id, np.mean(train_loss_list), 100.0 * np.mean(train_acc_list)))
         # test every 5 epochs
         if pass_id % 5 == 0:
             test_accs = []                                                           
@@ -135,9 +135,9 @@ def main(args):
                 test_accs.append(test_acc[0])                                        
                 test_costs.append(test_loss[0])                                      
 
-            test_loss = (sum(test_costs) / len(test_costs))                           
-            test_acc = (sum(test_accs) / len(test_accs))                              
-            print('Test:%d, Loss:%0.5f, Acc:%0.4f' % (pass_id / 5, test_loss, 100.0*test_acc))
+            #test_loss = (sum(test_costs) / len(test_costs))                           
+            #test_acc = (sum(test_accs) / len(test_accs))                              
+            print('Test:%d, Loss:%0.6f, Acc:%0.3f%%' % (pass_id / 5, np.mean(test_loss), 100.0*np.mean(test_acc)))
         # save model every 2 epochs
         if pass_id % 2 == 0:
             model_save_dir = args.model_save_path
