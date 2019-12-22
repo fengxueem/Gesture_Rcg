@@ -90,29 +90,29 @@ def main(args):
     test_program = fluid.default_main_program().clone(for_test=True)
     print('Start training...')
     for pass_id in range(epoch):
-        train_cost = 0
+        train_loss = 0
         for batch_id, data in enumerate(train_data_reader()):
-            train_cost, train_acc = exe.run(
+            train_loss, train_acc = exe.run(
                 program=fluid.default_main_program(),                            
                 feed=feeder.feed(data),                                         
-                fetch_list=[loss, accuracy])                                
+                fetch_list=[loss, accuracy])    
             if batch_id % 10 == 0:                                              
-                print("\nPass %d, Step %d, Cost %f, Acc %f" % 
-                (pass_id, batch_id, train_cost[0], train_acc[0]))
+                print("\nEpoch[%d] Batch[%d], Loss: %f, Acc: %.4f%%" % 
+                (pass_id, batch_id, train_loss[0], 100.0*train_acc[0]))
         # test after every 5 epoch
         if pass_id % 5 == 0:
             test_accs = []                                                           
             test_costs = []                                                           
             for batch_id, data in enumerate(test_data_reader()):
-                test_cost, test_acc = exe.run(program=test_program,
+                test_loss, test_acc = exe.run(program=test_program,
                                             feed=feeder.feed(data),                
-                                            fetch_list=[avg_cost, accuracy])      
+                                            fetch_list=[loss, accuracy])      
                 test_accs.append(test_acc[0])                                        
-                test_costs.append(test_cost[0])                                      
+                test_costs.append(test_loss[0])                                      
 
-            test_cost = (sum(test_costs) / len(test_costs))                           
+            test_loss = (sum(test_costs) / len(test_costs))                           
             test_acc = (sum(test_accs) / len(test_accs))                              
-            print('Test:%d, Cost:%0.5f, ACC:%0.5f' % (pass_id, test_cost, test_acc))
+            print('Test:%d, Loss:%0.5f, Acc:%0.4f' % (pass_id / 5, test_loss, 100.0*test_acc))
         # save model every 2 epoch
         if pass_id % 2 == 0:
             model_save_dir = args.model_save_path

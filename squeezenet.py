@@ -55,8 +55,8 @@ class SqueezeNet():
             param_attr=fluid.param_attr.ParamAttr(name="conv10_weights"),
             bias_attr=ParamAttr(name='conv10_offset'))
         pool_4 = fluid.layers.pool2d(conv, pool_type='avg', global_pooling=True)
-        sfmx = fluid.layers.softmax(input=pool_4)
-        out = fluid.layers.flatten(sfmx)
+        pool_4_flat = fluid.layers.flatten(pool_4)
+        out = fluid.layers.softmax(input=pool_4_flat)
         return out, conv
 
     def make_fire_conv(self,
