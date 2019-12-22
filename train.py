@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 import paddle
 import paddle.fluid as fluid
+import paddle.fluid.compiler as compiler
 import numpy as np
 import os, sys
 from multiprocessing import cpu_count
@@ -68,6 +69,7 @@ def test_reader(test_list, batch, buffered_size=1024):
     return paddle.batch(paddle.reader.xmap_readers(mapper, reader, cpu_count(), buffered_size), batch_size=batch)
 
 def main(args):
+    os.environ['CPU_NUM'] = args.device_num
     image = fluid.layers.data(name='image', shape=[1, input_h, input_w], dtype='float32')
     label = fluid.layers.data(name='label', shape=[1], dtype='int64')
     model = SqueezeNet()
@@ -87,13 +89,14 @@ def main(args):
     train_data_reader = train_reader(args.train_list_path, batch_size)
     test_data_reader = test_reader(args.test_list_path, batch_size)
     epoch = int(args.epoch)
+    train_program = compiler.CompiledProgram(fluid.default_main_program()).with_data_parallel(loss_name=loss.name)
     test_program = fluid.default_main_program().clone(for_test=True)
     print('Start training...')
     for pass_id in range(epoch):
         train_loss = 0
         for batch_id, data in enumerate(train_data_reader()):
             train_loss, train_acc = exe.run(
-                program=fluid.default_main_program(),                            
+                program=train_program,                            
                 feed=feeder.feed(data),                                         
                 fetch_list=[loss, accuracy])    
             if batch_id % 10 == 0:                                              
@@ -132,5 +135,6 @@ if __name__ == '__main__':
     parser.add_argument('batch_size', help="Batch size")
     parser.add_argument('epoch', help="Epoch")
     parser.add_argument('model_save_path', help="Path to save the model")
+    parser.add_argument('device_num', help="Number of computing devices, eg CPU cores, GPU cards")
     args = parser.parse_args()
     main(args)
