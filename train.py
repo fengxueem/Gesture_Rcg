@@ -78,6 +78,8 @@ def main(args):
     loss = fluid.layers.cross_entropy(input=prediction, label=label)
     loss = fluid.layers.mean(loss)
     accuracy = fluid.layers.accuracy(input=prediction, label=label)
+    train_program = compiler.CompiledProgram(fluid.default_main_program()).with_data_parallel(loss_name=loss.name)
+    test_program = compiler.CompiledProgram(fluid.default_main_program().clone(for_test=True)).with_data_parallel(loss_name=loss.name)
     optimizer = fluid.optimizer.Adam(learning_rate=float(args.learning_rate))
     optimizer.minimize(loss)
     # use CPU to train
@@ -90,8 +92,6 @@ def main(args):
     train_data_reader = train_reader(args.train_list_path, batch_size)
     test_data_reader = test_reader(args.test_list_path, batch_size)
     epoch = int(args.epoch)
-    train_program = compiler.CompiledProgram(fluid.default_main_program()).with_data_parallel(loss_name=loss.name)
-    test_program = fluid.default_main_program().clone(for_test=True)
     print('Start training...')
     for pass_id in range(epoch):
         train_loss = 0
@@ -112,7 +112,7 @@ def main(args):
             for batch_id, data in enumerate(test_data_reader()):
                 test_loss, test_acc = exe.run(program=test_program,
                                             feed=feeder.feed(data),                
-                                            fetch_list=[loss, accuracy])      
+                                            fetch_list=[loss, accuracy])  
                 test_accs.append(test_acc[0])                                        
                 test_costs.append(test_loss[0])                                      
 
