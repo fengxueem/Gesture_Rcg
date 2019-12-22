@@ -52,10 +52,10 @@ def main(args):
                 train_sum += 1                                    
                 class_train_list.append(name_path)
             class_sum += 1                                          #每类图片的数目
-        with open(data_list_path + "train.list", 'a') as f:
+        with open(data_list_path + "test.list", 'a') as f:
             for img in class_test_list:
                 f.write(img + "\t%d" % class_label + "\n")#class_label 标签：0,1,2
-        with open(data_list_path + "test.list", 'a') as f:
+        with open(data_list_path + "train.list", 'a') as f:
             for img in class_train_list:
                 f.write(img + "\t%d" % class_label + "\n") #class_label 标签：0,1,2
         # 说明的json文件的class_detail数据
