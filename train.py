@@ -1,11 +1,12 @@
 from argparse import ArgumentParser
+from multiprocessing import cpu_count
+import numpy as np
+import os, sys
 import paddle
 import paddle.fluid as fluid
 import paddle.fluid.compiler as compiler
-import numpy as np
-import os, sys
-from multiprocessing import cpu_count
 from squeezenet import SqueezeNet
+import time
 
 # global variables
 input_channel_mean = [127]
@@ -95,13 +96,15 @@ def main(args):
     for pass_id in range(epoch):
         train_loss = 0
         for batch_id, data in enumerate(train_data_reader()):
+            batch_start_timestamp = time.time()
             train_loss, train_acc = exe.run(
                 program=train_program,                            
                 feed=feeder.feed(data),                                         
                 fetch_list=[loss, accuracy])    
-            if batch_id % 10 == 0:                                              
-                print("\nEpoch[%d] Batch[%d], Loss: %f, Acc: %.4f%%" % 
-                (pass_id, batch_id, train_loss[0], 100.0*train_acc[0]))
+            if batch_id % 10 == 0:
+                batch_end_timestamp = time.time()                                              
+                print("\nEpoch[%d] Batch[%d] %.3fs, Loss: %f, Acc: %.4f%%" % 
+                (pass_id, batch_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
         # test after every 5 epoch
         if pass_id % 5 == 0:
             test_accs = []                                                           
