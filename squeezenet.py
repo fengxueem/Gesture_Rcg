@@ -20,7 +20,8 @@ import paddle.fluid as fluid
 import math
 from paddle.fluid.param_attr import ParamAttr
 
-
+# SqueezeNet_v1.1
+# https://github.com/forresti/SqueezeNet/tree/master/SqueezeNet_v1.1
 class SqueezeNet():
     def net(self, input, class_dim=1000):
         conv_1 = fluid.layers.conv2d(
@@ -95,6 +96,8 @@ if __name__ == '__main__':
     model = SqueezeNet()
     image = fluid.layers.data(name='image', shape=[1, 112, 112], dtype='float32')
     net, layer = model.net(image,2)
+    print("model output shape:")
+    print(net.shape)
     print(layer.shape)
     exe = fluid.Executor(fluid.CPUPlace())
     exe.run(fluid.default_startup_program())
