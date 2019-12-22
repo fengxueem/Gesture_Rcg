@@ -70,7 +70,7 @@ def test_reader(test_list, batch, buffered_size=1024):
     return paddle.batch(paddle.reader.xmap_readers(mapper, reader, cpu_count(), buffered_size), batch_size=batch)
 
 def main(args):
-    os.environ['CPU_NUM'] = args.device_num
+    os.environ['CPU_NUM'] = args.cpu_num
     image = fluid.layers.data(name='image', shape=[1, input_h, input_w], dtype='float32')
     label = fluid.layers.data(name='label', shape=[1], dtype='int64')
     model = SqueezeNet()
@@ -80,10 +80,14 @@ def main(args):
     accuracy = fluid.layers.accuracy(input=prediction, label=label)
     train_program = compiler.CompiledProgram(fluid.default_main_program()).with_data_parallel(loss_name=loss.name)
     test_program = compiler.CompiledProgram(fluid.default_main_program().clone(for_test=True)).with_data_parallel(loss_name=loss.name)
-    optimizer = fluid.optimizer.Adam(learning_rate=float(args.learning_rate))
+    warmup_steps = int(args.warmup_steps)
+    lr = fluid.layers.learning_rate_scheduler.noam_decay(1 / (warmup_steps *(float(args.learning_rate) ** 2)), warmup_steps)
+    optimizer = fluid.optimizer.Adagrad(learning_rate=lr,
+                                        regularization=fluid.regularizer.L2Decay(regularization_coeff=0.0002))
     optimizer.minimize(loss)
-    # use CPU to train
-    place = fluid.CPUPlace()
+    # use CPU or GPU to train
+    use_gpu = True if args.device == "GPU" else False
+    place = fluid.CUDAPlace(0) if use_gpu else fluid.CPUPlace()
     exe = fluid.Executor(place)
     exe.run(fluid.default_startup_program())
     feeder = fluid.DataFeeder(feed_list=[image, label], place=place)
@@ -101,8 +105,8 @@ def main(args):
                 program=train_program,                            
                 feed=feeder.feed(data),                                         
                 fetch_list=[loss, accuracy])    
-            if batch_id % 10 == 0:
-                batch_end_timestamp = time.time()                                              
+            if batch_id % 50 == 0:
+                batch_end_timestamp = time.time()   
                 print("\nEpoch[%d] Batch[%d] %.3fs, Loss: %f, Acc: %.4f%%" % 
                 (pass_id, batch_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
         # test after every 5 epoch
@@ -135,9 +139,11 @@ if __name__ == '__main__':
     parser.add_argument('train_list_path', help="Path of test list")
     parser.add_argument('test_list_path', help="Path of test list")
     parser.add_argument('learning_rate', help="Learning rate")
+    parser.add_argument('warmup_steps', help="Noam decay warm up steps")
     parser.add_argument('batch_size', help="Batch size")
     parser.add_argument('epoch', help="Epoch")
     parser.add_argument('model_save_path', help="Path to save the model")
-    parser.add_argument('device_num', help="Number of computing devices, eg CPU cores, GPU cards")
+    parser.add_argument('device', help="Training device type, CPU or GPU")
+    parser.add_argument('cpu_num', help="Number of CPU cores for training")
     args = parser.parse_args()
     main(args)
