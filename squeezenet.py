@@ -31,7 +31,7 @@ class SqueezeNet():
                 stride=2,
                 padding=1,
                 act='relu',
-                param_attr=fluid.param_attr.ParamAttr(name="conv1_w"),
+                param_attr=fluid.ParamAttr(name='conv1_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
                 bias_attr=ParamAttr(name='conv1_b'))
         conv1_bn_w_attr = fluid.ParamAttr(name='conv1_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv1_bn_b_attr = fluid.ParamAttr(name='conv1_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
@@ -56,7 +56,7 @@ class SqueezeNet():
             num_filters=class_dim,
             filter_size=1,
             act='relu',
-            param_attr=fluid.param_attr.ParamAttr(name="conv10_w"),
+            param_attr=fluid.ParamAttr(name='conv10_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
             bias_attr=ParamAttr(name='conv10_b'))
         conv10_bn_w_attr = fluid.ParamAttr(name='conv10_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv10_bn_b_attr = fluid.ParamAttr(name='conv10_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
@@ -72,7 +72,7 @@ class SqueezeNet():
                        filter_size,
                        padding=0,
                        name=None):
-        conv_attr = fluid.ParamAttr(name=name + '_w', initializer=fluid.initializer.Xavier(uniform=False))
+        conv_attr = fluid.ParamAttr(name=name + '_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0))
         conv = fluid.layers.conv2d(
             input,
             num_filters=num_filters,
