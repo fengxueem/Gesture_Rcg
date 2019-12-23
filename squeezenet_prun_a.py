@@ -20,14 +20,17 @@ import paddle.fluid as fluid
 import math
 from paddle.fluid.param_attr import ParamAttr
 
-# SqueezeNet_v1.1
+# SqueezeNet_v1.1_prun_a
 # https://github.com/forresti/SqueezeNet/tree/master/SqueezeNet_v1.1
 # Note: Tiny modification is made: each conv layer is followed by a BN layer.
-class SqueezeNet():
+#
+# For simple vision classfication job, a slimmer net is required. So, this "prun_a" version
+# shrink the channel width of each conv layer.
+class SqueezeNetPrunA():
     def net(self, input, class_dim=1000):
         conv_1 = fluid.layers.conv2d(
                 input,
-                num_filters=64,
+                num_filters=32,
                 filter_size=3,
                 stride=2,
                 padding=1,
@@ -39,18 +42,18 @@ class SqueezeNet():
         conv1_bn = fluid.layers.batch_norm(input=conv_1, param_attr=conv1_bn_w_attr, bias_attr=conv1_bn_b_attr)
         pool_1 = fluid.layers.pool2d(
                 conv1_bn, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
-        conv = self.make_fire(pool_1, 16, 64, 64, name='fire2')
-        conv = self.make_fire(conv, 16, 64, 64, name='fire3')
+        conv = self.make_fire(pool_1, 8, 32, 32, name='fire2')
+        conv = self.make_fire(conv, 8, 32, 32, name='fire3')
         pool_2 = fluid.layers.pool2d(
                 conv, pool_size=3, pool_stride=2, pool_type='max')
-        conv = self.make_fire(pool_2, 32, 128, 128, name='fire4')
-        conv = self.make_fire(conv, 32, 128, 128, name='fire5')
+        conv = self.make_fire(pool_2, 16, 64, 64, name='fire4')
+        conv = self.make_fire(conv, 16, 64, 64, name='fire5')
         pool_3 = fluid.layers.pool2d(
                 conv, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
-        conv = self.make_fire(pool_3, 48, 192, 192, name='fire6')
-        conv = self.make_fire(conv, 48, 192, 192, name='fire7')
-        conv = self.make_fire(conv, 64, 256, 256, name='fire8')
-        conv = self.make_fire(conv, 64, 256, 256, name='fire9')
+        conv = self.make_fire(pool_3, 24, 96, 96, name='fire6')
+        conv = self.make_fire(conv, 24, 96, 96, name='fire7')
+        conv = self.make_fire(conv, 32, 128, 128, name='fire8')
+        conv = self.make_fire(conv, 32, 128, 128, name='fire9')
         conv = fluid.layers.dropout(conv, dropout_prob=0.5)
         conv = fluid.layers.conv2d(
             conv,
@@ -104,7 +107,7 @@ class SqueezeNet():
 
 
 if __name__ == '__main__':
-    model = SqueezeNet()
+    model = SqueezeNetPrunA()
     image = fluid.layers.data(name='image', shape=[1, 112, 112], dtype='float32')
     net, layer = model.net(image,2)
     print("model output shape:")

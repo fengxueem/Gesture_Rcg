@@ -7,6 +7,7 @@ import paddle
 import paddle.fluid as fluid
 import paddle.fluid.compiler as compiler
 from squeezenet import SqueezeNet
+from squeezenet_prun_a import SqueezeNetPrunA
 import time
 
 # global variables
@@ -73,11 +74,17 @@ def test_reader(test_list, batch, buffered_size=1024):
                 yield img_path, int(lab)
     return paddle.batch(paddle.reader.xmap_readers(mapper, reader, cpu_count(), buffered_size), batch_size=batch)
 
+def model_selector(model_code):
+    return {
+            'squeezenet': SqueezeNet(), # default
+            'squeezenet_prun_a': SqueezeNetPrunA(),
+    }.get(model_code, SqueezeNet())
+
 def main(args):
     os.environ['CPU_NUM'] = args.cpu_num
     image = fluid.layers.data(name='image', shape=[1, input_h, input_w], dtype='float32')
     label = fluid.layers.data(name='label', shape=[1], dtype='int64')
-    model = SqueezeNet()
+    model = model_selector(args.model_code)
     prediction, _ = model.net(input=image, class_dim=2)
     loss = fluid.layers.cross_entropy(input=prediction, label=label)
     loss = fluid.layers.mean(loss)
@@ -151,6 +158,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description="Train a model")
+    parser.add_argument('model_code', help="Code name of a model")
     parser.add_argument('train_list_path', help="Path of test list")
     parser.add_argument('test_list_path', help="Path of test list")
     parser.add_argument('learning_rate', help="Learning rate")
