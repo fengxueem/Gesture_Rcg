@@ -100,7 +100,7 @@ def main(args):
     train_data_reader, total_batch = train_reader(args.train_list_path, batch_size)
     test_data_reader = test_reader(args.test_list_path, batch_size)
     epoch = int(args.epoch)
-    print('Start training...')
+    print('Start training...', flush=True)
     for pass_id in range(epoch):
         train_loss = 0
         train_loss_list = []
@@ -121,9 +121,9 @@ def main(args):
                 batch_end_timestamp = time.time()   
                 last_work_len = work_len
                 print("|" + ">" * work_len + "-" * (progress_bar_len - work_len) + "| Epoch[%d] %.3fs, Current batch loss: %.6f, acc: %.3f%%" % 
-                    (pass_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]))
+                    (pass_id, batch_end_timestamp - batch_start_timestamp, train_loss[0], 100.0*train_acc[0]), flush=True)
         # print average loss and accuracy during this epoch
-        print("Sum: Epoch[%d], Avg loss: %.6f, Avg acc %.3f%%" % (pass_id, np.mean(train_loss_list), 100.0 * np.mean(train_acc_list)))
+        print("Sum: Epoch[%d], Avg loss: %.6f, Avg acc %.3f%%" % (pass_id, np.mean(train_loss_list), 100.0 * np.mean(train_acc_list)), flush=True)
         # test every 5 epochs
         if pass_id % 5 == 0:
             test_accs = []                                                           
@@ -137,7 +137,7 @@ def main(args):
 
             #test_loss = (sum(test_costs) / len(test_costs))                           
             #test_acc = (sum(test_accs) / len(test_accs))                              
-            print('Test:%d, Loss:%0.6f, Acc:%0.3f%%' % (pass_id / 5, np.mean(test_loss), 100.0*np.mean(test_acc)))
+            print('Test:%d, Loss:%0.6f, Acc:%0.3f%%' % (pass_id / 5, np.mean(test_loss), 100.0*np.mean(test_acc)), flush=True)
         # save model every 2 epochs
         if pass_id % 2 == 0:
             model_save_dir = args.model_save_path
