@@ -1,19 +1,19 @@
 {
-    "all_class_images": 60000,
+    "all_class_images": 1200,
     "all_class_name": "gesture",
     "all_class_sum": 2,
     "class_detail": [
         {
             "class_label": 0,
             "class_name": "awesome_1",
-            "class_test_images": 5000,
-            "class_train_images": 25000
+            "class_test_images": 100,
+            "class_train_images": 500
         },
         {
             "class_label": 1,
             "class_name": "fist_0",
-            "class_test_images": 5000,
-            "class_train_images": 25000
+            "class_test_images": 100,
+            "class_train_images": 500
         }
     ]
 }
