@@ -1,0 +1,388 @@
+1:
+Start training...
+|>>--------| Epoch[0] 0.005s, Current batch loss: 1.045282, acc: 3.125%
+|>>>>------| Epoch[0] 0.006s, Current batch loss: 1.043436, acc: 3.125%
+|>>>>>>----| Epoch[0] 0.004s, Current batch loss: 0.624585, acc: 71.875%
+|>>>>>>>>--| Epoch[0] 0.032s, Current batch loss: 0.455856, acc: 96.875%
+|>>>>>>>>>>| Epoch[0] 0.004s, Current batch loss: 0.453673, acc: 96.875%
+Sum: Epoch[0], Avg loss: 0.752747, Avg acc 50.080%
+Test:0, Loss:0.588020, Acc:100.000%
+|>>--------| Epoch[1] 0.004s, Current batch loss: 1.044455, acc: 0.000%
+|>>>>------| Epoch[1] 0.005s, Current batch loss: 1.050744, acc: 0.000%
+|>>>>>>----| Epoch[1] 0.005s, Current batch loss: 0.739318, acc: 50.000%
+|>>>>>>>>--| Epoch[1] 0.030s, Current batch loss: 0.459286, acc: 100.000%
+|>>>>>>>>>>| Epoch[1] 0.005s, Current batch loss: 0.455624, acc: 100.000%
+Sum: Epoch[1], Avg loss: 0.752544, Avg acc 50.074%
+|>>--------| Epoch[2] 0.006s, Current batch loss: 1.052418, acc: 0.000%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 1.048148, acc: 0.000%
+|>>>>>>----| Epoch[2] 0.005s, Current batch loss: 0.664838, acc: 65.625%
+|>>>>>>>>--| Epoch[2] 0.039s, Current batch loss: 0.456445, acc: 100.000%
+|>>>>>>>>>>| Epoch[2] 0.004s, Current batch loss: 0.458166, acc: 100.000%
+Sum: Epoch[2], Avg loss: 0.752650, Avg acc 50.084%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 1.045074, acc: 3.125%
+|>>>>------| Epoch[3] 0.004s, Current batch loss: 1.047456, acc: 0.000%
+|>>>>>>----| Epoch[3] 0.006s, Current batch loss: 0.757661, acc: 53.125%
+|>>>>>>>>--| Epoch[3] 0.036s, Current batch loss: 0.455747, acc: 96.875%
+|>>>>>>>>>>| Epoch[3] 0.004s, Current batch loss: 0.455502, acc: 93.750%
+Sum: Epoch[3], Avg loss: 0.752670, Avg acc 50.128%
+|>>--------| Epoch[4] 0.004s, Current batch loss: 1.051028, acc: 3.125%
+|>>>>------| Epoch[4] 0.004s, Current batch loss: 1.047706, acc: 3.125%
+|>>>>>>----| Epoch[4] 0.004s, Current batch loss: 0.702843, acc: 56.250%
+|>>>>>>>>--| Epoch[4] 0.030s, Current batch loss: 0.453866, acc: 100.000%
+|>>>>>>>>>>| Epoch[4] 0.004s, Current batch loss: 0.461378, acc: 96.875%
+Sum: Epoch[4], Avg loss: 0.752437, Avg acc 50.130%
+|>>--------| Epoch[5] 0.004s, Current batch loss: 1.047604, acc: 0.000%
+|>>>>------| Epoch[5] 0.005s, Current batch loss: 1.046637, acc: 3.125%
+|>>>>>>----| Epoch[5] 0.005s, Current batch loss: 0.719249, acc: 46.875%
+|>>>>>>>>--| Epoch[5] 0.041s, Current batch loss: 0.461889, acc: 100.000%
+|>>>>>>>>>>| Epoch[5] 0.004s, Current batch loss: 0.458543, acc: 100.000%
+Sum: Epoch[5], Avg loss: 0.752499, Avg acc 50.036%
+Test:1, Loss:0.516890, Acc:100.000%
+|>>--------| Epoch[6] 0.004s, Current batch loss: 1.051229, acc: 0.000%
+|>>>>------| Epoch[6] 0.004s, Current batch loss: 1.049155, acc: 0.000%
+|>>>>>>----| Epoch[6] 0.004s, Current batch loss: 0.695686, acc: 62.500%
+|>>>>>>>>--| Epoch[6] 0.039s, Current batch loss: 0.455209, acc: 100.000%
+|>>>>>>>>>>| Epoch[6] 0.004s, Current batch loss: 0.455671, acc: 96.875%
+Sum: Epoch[6], Avg loss: 0.752700, Avg acc 50.114%
+|>>--------| Epoch[7] 0.004s, Current batch loss: 1.041682, acc: 0.000%
+|>>>>------| Epoch[7] 0.004s, Current batch loss: 1.046293, acc: 0.000%
+|>>>>>>----| Epoch[7] 0.004s, Current batch loss: 0.658085, acc: 68.750%
+|>>>>>>>>--| Epoch[7] 0.023s, Current batch loss: 0.458521, acc: 96.875%
+|>>>>>>>>>>| Epoch[7] 0.005s, Current batch loss: 0.456694, acc: 96.875%
+Sum: Epoch[7], Avg loss: 0.752578, Avg acc 50.104%
+|>>--------| Epoch[8] 0.004s, Current batch loss: 1.043404, acc: 0.000%
+|>>>>------| Epoch[8] 0.005s, Current batch loss: 1.042964, acc: 0.000%
+|>>>>>>----| Epoch[8] 0.005s, Current batch loss: 0.648375, acc: 71.875%
+|>>>>>>>>--| Epoch[8] 0.035s, Current batch loss: 0.455973, acc: 100.000%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.456569, acc: 96.875%
+Sum: Epoch[8], Avg loss: 0.752778, Avg acc 50.014%
+|>>--------| Epoch[9] 0.004s, Current batch loss: 1.047793, acc: 9.375%
+|>>>>------| Epoch[9] 0.004s, Current batch loss: 1.045751, acc: 3.125%
+|>>>>>>----| Epoch[9] 0.004s, Current batch loss: 0.738775, acc: 53.125%
+|>>>>>>>>--| Epoch[9] 0.021s, Current batch loss: 0.457419, acc: 100.000%
+|>>>>>>>>>>| Epoch[9] 0.004s, Current batch loss: 0.451915, acc: 100.000%
+
+2:
+Start training...
+|>>--------| Epoch[0] 0.006s, Current batch loss: 0.828485, acc: 21.875%
+|>>>>------| Epoch[0] 0.005s, Current batch loss: 0.815492, acc: 15.625%
+|>>>>>>----| Epoch[0] 0.006s, Current batch loss: 0.718181, acc: 50.000%
+|>>>>>>>>--| Epoch[0] 0.034s, Current batch loss: 0.604929, acc: 68.750%
+|>>>>>>>>>>| Epoch[0] 0.006s, Current batch loss: 0.603976, acc: 68.750%
+Sum: Epoch[0], Avg loss: 0.713134, Avg acc 49.968%
+Test:0, Loss:0.510128, Acc:100.000%
+|>>--------| Epoch[1] 0.005s, Current batch loss: 0.813386, acc: 18.750%
+|>>>>------| Epoch[1] 0.005s, Current batch loss: 0.817854, acc: 25.000%
+|>>>>>>----| Epoch[1] 0.005s, Current batch loss: 0.746740, acc: 46.875%
+|>>>>>>>>--| Epoch[1] 0.026s, Current batch loss: 0.613247, acc: 78.125%
+|>>>>>>>>>>| Epoch[1] 0.005s, Current batch loss: 0.612089, acc: 78.125%
+Sum: Epoch[1], Avg loss: 0.713182, Avg acc 50.088%
+|>>--------| Epoch[2] 0.005s, Current batch loss: 0.815496, acc: 25.000%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 0.817092, acc: 28.125%
+|>>>>>>----| Epoch[2] 0.005s, Current batch loss: 0.788300, acc: 37.500%
+|>>>>>>>>--| Epoch[2] 0.036s, Current batch loss: 0.612430, acc: 65.625%
+|>>>>>>>>>>| Epoch[2] 0.006s, Current batch loss: 0.615208, acc: 78.125%
+Sum: Epoch[2], Avg loss: 0.713180, Avg acc 49.916%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 0.818499, acc: 31.250%
+|>>>>------| Epoch[3] 0.005s, Current batch loss: 0.816516, acc: 18.750%
+|>>>>>>----| Epoch[3] 0.005s, Current batch loss: 0.678773, acc: 62.500%
+|>>>>>>>>--| Epoch[3] 0.032s, Current batch loss: 0.606082, acc: 81.250%
+|>>>>>>>>>>| Epoch[3] 0.006s, Current batch loss: 0.605856, acc: 75.000%
+Sum: Epoch[3], Avg loss: 0.713266, Avg acc 49.900%
+|>>--------| Epoch[4] 0.005s, Current batch loss: 0.819755, acc: 21.875%
+|>>>>------| Epoch[4] 0.005s, Current batch loss: 0.817393, acc: 18.750%
+|>>>>>>----| Epoch[4] 0.006s, Current batch loss: 0.672701, acc: 59.375%
+|>>>>>>>>--| Epoch[4] 0.034s, Current batch loss: 0.605683, acc: 71.875%
+|>>>>>>>>>>| Epoch[4] 0.005s, Current batch loss: 0.614062, acc: 75.000%
+Sum: Epoch[4], Avg loss: 0.713113, Avg acc 49.770%
+|>>--------| Epoch[5] 0.005s, Current batch loss: 0.816544, acc: 25.000%
+|>>>>------| Epoch[5] 0.005s, Current batch loss: 0.821456, acc: 21.875%
+|>>>>>>----| Epoch[5] 0.005s, Current batch loss: 0.748965, acc: 43.750%
+|>>>>>>>>--| Epoch[5] 0.019s, Current batch loss: 0.612675, acc: 87.500%
+|>>>>>>>>>>| Epoch[5] 0.005s, Current batch loss: 0.610222, acc: 75.000%
+Sum: Epoch[5], Avg loss: 0.713153, Avg acc 49.938%
+Test:1, Loss:0.513760, Acc:100.000%
+|>>--------| Epoch[6] 0.005s, Current batch loss: 0.811891, acc: 21.875%
+|>>>>------| Epoch[6] 0.005s, Current batch loss: 0.817280, acc: 31.250%
+|>>>>>>----| Epoch[6] 0.005s, Current batch loss: 0.676533, acc: 56.250%
+|>>>>>>>>--| Epoch[6] 0.037s, Current batch loss: 0.610839, acc: 71.875%
+|>>>>>>>>>>| Epoch[6] 0.005s, Current batch loss: 0.609379, acc: 81.250%
+Sum: Epoch[6], Avg loss: 0.712943, Avg acc 49.950%
+|>>--------| Epoch[7] 0.005s, Current batch loss: 0.818430, acc: 25.000%
+|>>>>------| Epoch[7] 0.005s, Current batch loss: 0.814551, acc: 31.250%
+|>>>>>>----| Epoch[7] 0.005s, Current batch loss: 0.695465, acc: 53.125%
+|>>>>>>>>--| Epoch[7] 0.040s, Current batch loss: 0.606353, acc: 71.875%
+|>>>>>>>>>>| Epoch[7] 0.005s, Current batch loss: 0.607938, acc: 78.125%
+Sum: Epoch[7], Avg loss: 0.713201, Avg acc 49.932%
+|>>--------| Epoch[8] 0.005s, Current batch loss: 0.814356, acc: 15.625%
+|>>>>------| Epoch[8] 0.005s, Current batch loss: 0.821964, acc: 25.000%
+|>>>>>>----| Epoch[8] 0.006s, Current batch loss: 0.710834, acc: 46.875%
+|>>>>>>>>--| Epoch[8] 0.016s, Current batch loss: 0.609683, acc: 78.125%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.603555, acc: 84.375%
+Sum: Epoch[8], Avg loss: 0.713224, Avg acc 49.746%
+|>>--------| Epoch[9] 0.006s, Current batch loss: 0.824697, acc: 18.750%
+|>>>>------| Epoch[9] 0.005s, Current batch loss: 0.819266, acc: 21.875%
+|>>>>>>----| Epoch[9] 0.005s, Current batch loss: 0.688693, acc: 59.375%
+|>>>>>>>>--| Epoch[9] 0.031s, Current batch loss: 0.606269, acc: 87.500%
+|>>>>>>>>>>| Epoch[9] 0.005s, Current batch loss: 0.612405, acc: 68.750%
+Sum: Epoch[9], Avg loss: 0.713204, Avg acc 50.010%
+
+3:
+Start training...
+|>>--------| Epoch[0] 0.005s, Current batch loss: 1.036928, acc: 3.125%
+|>>>>------| Epoch[0] 0.005s, Current batch loss: 1.041315, acc: 6.250%
+|>>>>>>----| Epoch[0] 0.006s, Current batch loss: 0.696093, acc: 59.375%
+|>>>>>>>>--| Epoch[0] 0.039s, Current batch loss: 0.447383, acc: 96.875%
+|>>>>>>>>>>| Epoch[0] 0.005s, Current batch loss: 0.445776, acc: 93.750%
+Sum: Epoch[0], Avg loss: 0.743496, Avg acc 50.052%
+Test:0, Loss:0.401181, Acc:100.000%
+|>>--------| Epoch[1] 0.005s, Current batch loss: 1.039194, acc: 3.125%
+|>>>>------| Epoch[1] 0.005s, Current batch loss: 1.038400, acc: 3.125%
+|>>>>>>----| Epoch[1] 0.005s, Current batch loss: 0.805522, acc: 37.500%
+|>>>>>>>>--| Epoch[1] 0.029s, Current batch loss: 0.447269, acc: 93.750%
+|>>>>>>>>>>| Epoch[1] 0.005s, Current batch loss: 0.448232, acc: 96.875%
+Sum: Epoch[1], Avg loss: 0.743351, Avg acc 49.950%
+|>>--------| Epoch[2] 0.005s, Current batch loss: 1.037407, acc: 3.125%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 1.040142, acc: 6.250%
+|>>>>>>----| Epoch[2] 0.005s, Current batch loss: 0.711894, acc: 56.250%
+|>>>>>>>>--| Epoch[2] 0.035s, Current batch loss: 0.448607, acc: 96.875%
+|>>>>>>>>>>| Epoch[2] 0.005s, Current batch loss: 0.446484, acc: 93.750%
+Sum: Epoch[2], Avg loss: 0.743169, Avg acc 49.996%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 1.036744, acc: 3.125%
+|>>>>------| Epoch[3] 0.005s, Current batch loss: 1.037431, acc: 3.125%
+|>>>>>>----| Epoch[3] 0.005s, Current batch loss: 0.651899, acc: 62.500%
+|>>>>>>>>--| Epoch[3] 0.029s, Current batch loss: 0.444722, acc: 96.875%
+|>>>>>>>>>>| Epoch[3] 0.005s, Current batch loss: 0.446536, acc: 96.875%
+Sum: Epoch[3], Avg loss: 0.743381, Avg acc 50.034%
+|>>--------| Epoch[4] 0.005s, Current batch loss: 1.036646, acc: 3.125%
+|>>>>------| Epoch[4] 0.005s, Current batch loss: 1.041174, acc: 3.125%
+|>>>>>>----| Epoch[4] 0.006s, Current batch loss: 0.586460, acc: 71.875%
+|>>>>>>>>--| Epoch[4] 0.049s, Current batch loss: 0.451687, acc: 96.875%
+|>>>>>>>>>>| Epoch[4] 0.005s, Current batch loss: 0.445562, acc: 96.875%
+Sum: Epoch[4], Avg loss: 0.743325, Avg acc 50.060%
+|>>--------| Epoch[5] 0.005s, Current batch loss: 1.039174, acc: 3.125%
+|>>>>------| Epoch[5] 0.006s, Current batch loss: 1.036519, acc: 3.125%
+|>>>>>>----| Epoch[5] 0.005s, Current batch loss: 0.627912, acc: 68.750%
+|>>>>>>>>--| Epoch[5] 0.025s, Current batch loss: 0.448030, acc: 93.750%
+|>>>>>>>>>>| Epoch[5] 0.006s, Current batch loss: 0.450027, acc: 93.750%
+Sum: Epoch[5], Avg loss: 0.743375, Avg acc 50.066%
+Test:1, Loss:0.396926, Acc:100.000%
+|>>--------| Epoch[6] 0.006s, Current batch loss: 1.035521, acc: 0.000%
+|>>>>------| Epoch[6] 0.005s, Current batch loss: 1.037341, acc: 3.125%
+|>>>>>>----| Epoch[6] 0.005s, Current batch loss: 0.707756, acc: 53.125%
+|>>>>>>>>--| Epoch[6] 0.032s, Current batch loss: 0.450224, acc: 96.875%
+|>>>>>>>>>>| Epoch[6] 0.005s, Current batch loss: 0.446515, acc: 96.875%
+Sum: Epoch[6], Avg loss: 0.743416, Avg acc 50.012%
+|>>--------| Epoch[7] 0.005s, Current batch loss: 1.039026, acc: 9.375%
+|>>>>------| Epoch[7] 0.005s, Current batch loss: 1.038048, acc: 3.125%
+|>>>>>>----| Epoch[7] 0.005s, Current batch loss: 0.612934, acc: 75.000%
+|>>>>>>>>--| Epoch[7] 0.031s, Current batch loss: 0.446424, acc: 100.000%
+|>>>>>>>>>>| Epoch[7] 0.006s, Current batch loss: 0.449403, acc: 96.875%
+Sum: Epoch[7], Avg loss: 0.743380, Avg acc 50.004%
+|>>--------| Epoch[8] 0.005s, Current batch loss: 1.036365, acc: 0.000%
+|>>>>------| Epoch[8] 0.005s, Current batch loss: 1.040922, acc: 3.125%
+|>>>>>>----| Epoch[8] 0.005s, Current batch loss: 0.759861, acc: 46.875%
+|>>>>>>>>--| Epoch[8] 0.037s, Current batch loss: 0.446107, acc: 96.875%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.448274, acc: 90.625%
+Sum: Epoch[8], Avg loss: 0.743312, Avg acc 50.078%
+|>>--------| Epoch[9] 0.006s, Current batch loss: 1.038812, acc: 3.125%
+|>>>>------| Epoch[9] 0.005s, Current batch loss: 1.038693, acc: 6.250%
+|>>>>>>----| Epoch[9] 0.005s, Current batch loss: 0.691766, acc: 56.250%
+|>>>>>>>>--| Epoch[9] 0.047s, Current batch loss: 0.450827, acc: 96.875%
+|>>>>>>>>>>| Epoch[9] 0.005s, Current batch loss: 0.447590, acc: 96.875%
+Sum: Epoch[9], Avg loss: 0.743413, Avg acc 50.012%
+
+4:
+Start training...
+|>>--------| Epoch[0] 0.005s, Current batch loss: 0.510027, acc: 100.000%
+|>>>>------| Epoch[0] 0.005s, Current batch loss: 0.510624, acc: 100.000%
+|>>>>>>----| Epoch[0] 0.005s, Current batch loss: 0.727148, acc: 40.625%
+|>>>>>>>>--| Epoch[0] 0.028s, Current batch loss: 0.926347, acc: 0.000%
+|>>>>>>>>>>| Epoch[0] 0.005s, Current batch loss: 0.927342, acc: 0.000%
+Sum: Epoch[0], Avg loss: 0.718809, Avg acc 50.006%
+Test:0, Loss:0.857074, Acc:0.000%
+|>>--------| Epoch[1] 0.005s, Current batch loss: 0.509159, acc: 100.000%
+|>>>>------| Epoch[1] 0.006s, Current batch loss: 0.513055, acc: 100.000%
+|>>>>>>----| Epoch[1] 0.005s, Current batch loss: 0.782307, acc: 34.375%
+|>>>>>>>>--| Epoch[1] 0.039s, Current batch loss: 0.926529, acc: 0.000%
+|>>>>>>>>>>| Epoch[1] 0.005s, Current batch loss: 0.928144, acc: 0.000%
+Sum: Epoch[1], Avg loss: 0.718941, Avg acc 49.996%
+|>>--------| Epoch[2] 0.006s, Current batch loss: 0.511401, acc: 100.000%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 0.509284, acc: 100.000%
+|>>>>>>----| Epoch[2] 0.005s, Current batch loss: 0.777267, acc: 37.500%
+|>>>>>>>>--| Epoch[2] 0.051s, Current batch loss: 0.926062, acc: 0.000%
+|>>>>>>>>>>| Epoch[2] 0.005s, Current batch loss: 0.928192, acc: 0.000%
+Sum: Epoch[2], Avg loss: 0.718897, Avg acc 49.986%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 0.509474, acc: 100.000%
+|>>>>------| Epoch[3] 0.005s, Current batch loss: 0.509439, acc: 100.000%
+|>>>>>>----| Epoch[3] 0.005s, Current batch loss: 0.753203, acc: 43.750%
+|>>>>>>>>--| Epoch[3] 0.042s, Current batch loss: 0.927174, acc: 0.000%
+|>>>>>>>>>>| Epoch[3] 0.005s, Current batch loss: 0.927778, acc: 0.000%
+Sum: Epoch[3], Avg loss: 0.718754, Avg acc 50.000%
+|>>--------| Epoch[4] 0.005s, Current batch loss: 0.509911, acc: 100.000%
+|>>>>------| Epoch[4] 0.005s, Current batch loss: 0.510617, acc: 100.000%
+|>>>>>>----| Epoch[4] 0.006s, Current batch loss: 0.769764, acc: 37.500%
+|>>>>>>>>--| Epoch[4] 0.021s, Current batch loss: 0.927743, acc: 0.000%
+|>>>>>>>>>>| Epoch[4] 0.006s, Current batch loss: 0.928142, acc: 0.000%
+Sum: Epoch[4], Avg loss: 0.718937, Avg acc 49.974%
+|>>--------| Epoch[5] 0.006s, Current batch loss: 0.509602, acc: 100.000%
+|>>>>------| Epoch[5] 0.005s, Current batch loss: 0.509481, acc: 100.000%
+|>>>>>>----| Epoch[5] 0.005s, Current batch loss: 0.788912, acc: 34.375%
+|>>>>>>>>--| Epoch[5] 0.033s, Current batch loss: 0.926359, acc: 0.000%
+|>>>>>>>>>>| Epoch[5] 0.005s, Current batch loss: 0.930879, acc: 0.000%
+Sum: Epoch[5], Avg loss: 0.718702, Avg acc 50.018%
+Test:1, Loss:0.855803, Acc:0.000%
+|>>--------| Epoch[6] 0.005s, Current batch loss: 0.510729, acc: 100.000%
+|>>>>------| Epoch[6] 0.005s, Current batch loss: 0.511252, acc: 100.000%
+|>>>>>>----| Epoch[6] 0.005s, Current batch loss: 0.840950, acc: 21.875%
+|>>>>>>>>--| Epoch[6] 0.025s, Current batch loss: 0.927457, acc: 0.000%
+|>>>>>>>>>>| Epoch[6] 0.005s, Current batch loss: 0.927171, acc: 0.000%
+Sum: Epoch[6], Avg loss: 0.718843, Avg acc 49.996%
+|>>--------| Epoch[7] 0.005s, Current batch loss: 0.511688, acc: 100.000%
+|>>>>------| Epoch[7] 0.005s, Current batch loss: 0.508729, acc: 100.000%
+|>>>>>>----| Epoch[7] 0.005s, Current batch loss: 0.783325, acc: 34.375%
+|>>>>>>>>--| Epoch[7] 0.009s, Current batch loss: 0.926093, acc: 0.000%
+|>>>>>>>>>>| Epoch[7] 0.005s, Current batch loss: 0.925457, acc: 0.000%
+Sum: Epoch[7], Avg loss: 0.718827, Avg acc 50.004%
+|>>--------| Epoch[8] 0.005s, Current batch loss: 0.509884, acc: 100.000%
+|>>>>------| Epoch[8] 0.006s, Current batch loss: 0.510954, acc: 100.000%
+|>>>>>>----| Epoch[8] 0.006s, Current batch loss: 0.746350, acc: 40.625%
+|>>>>>>>>--| Epoch[8] 0.037s, Current batch loss: 0.927569, acc: 0.000%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.928843, acc: 0.000%
+Sum: Epoch[8], Avg loss: 0.718733, Avg acc 50.004%
+|>>--------| Epoch[9] 0.005s, Current batch loss: 0.510272, acc: 100.000%
+|>>>>------| Epoch[9] 0.005s, Current batch loss: 0.510057, acc: 100.000%
+|>>>>>>----| Epoch[9] 0.005s, Current batch loss: 0.744575, acc: 46.875%
+|>>>>>>>>--| Epoch[9] 0.024s, Current batch loss: 0.927072, acc: 0.000%
+|>>>>>>>>>>| Epoch[9] 0.005s, Current batch loss: 0.926443, acc: 0.000%
+Sum: Epoch[9], Avg loss: 0.718792, Avg acc 49.980%
+
+5:
+Start training...
+|>>--------| Epoch[0] 0.005s, Current batch loss: 1.377750, acc: 0.000%
+|>>>>------| Epoch[0] 0.006s, Current batch loss: 1.382361, acc: 0.000%
+|>>>>>>----| Epoch[0] 0.005s, Current batch loss: 0.819407, acc: 50.000%
+|>>>>>>>>--| Epoch[0] 0.033s, Current batch loss: 0.309597, acc: 100.000%
+|>>>>>>>>>>| Epoch[0] 0.005s, Current batch loss: 0.305507, acc: 100.000%
+Sum: Epoch[0], Avg loss: 0.843449, Avg acc 50.016%
+Test:0, Loss:0.339899, Acc:100.000%
+|>>--------| Epoch[1] 0.005s, Current batch loss: 1.378848, acc: 0.000%
+|>>>>------| Epoch[1] 0.005s, Current batch loss: 1.380982, acc: 0.000%
+|>>>>>>----| Epoch[1] 0.005s, Current batch loss: 0.785333, acc: 56.250%
+|>>>>>>>>--| Epoch[1] 0.052s, Current batch loss: 0.312021, acc: 100.000%
+|>>>>>>>>>>| Epoch[1] 0.006s, Current batch loss: 0.306517, acc: 100.000%
+Sum: Epoch[1], Avg loss: 0.843061, Avg acc 50.016%
+|>>--------| Epoch[2] 0.005s, Current batch loss: 1.385992, acc: 0.000%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 1.381606, acc: 0.000%
+|>>>>>>----| Epoch[2] 0.006s, Current batch loss: 0.821072, acc: 56.250%
+|>>>>>>>>--| Epoch[2] 0.028s, Current batch loss: 0.311292, acc: 100.000%
+|>>>>>>>>>>| Epoch[2] 0.005s, Current batch loss: 0.302724, acc: 100.000%
+Sum: Epoch[2], Avg loss: 0.843202, Avg acc 50.016%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 1.374973, acc: 0.000%
+|>>>>------| Epoch[3] 0.005s, Current batch loss: 1.385682, acc: 0.000%
+|>>>>>>----| Epoch[3] 0.005s, Current batch loss: 0.769622, acc: 53.125%
+|>>>>>>>>--| Epoch[3] 0.024s, Current batch loss: 0.308181, acc: 100.000%
+|>>>>>>>>>>| Epoch[3] 0.005s, Current batch loss: 0.304105, acc: 100.000%
+Sum: Epoch[3], Avg loss: 0.843590, Avg acc 50.016%
+|>>--------| Epoch[4] 0.006s, Current batch loss: 1.380034, acc: 0.000%
+|>>>>------| Epoch[4] 0.005s, Current batch loss: 1.385134, acc: 0.000%
+|>>>>>>----| Epoch[4] 0.005s, Current batch loss: 0.680721, acc: 62.500%
+|>>>>>>>>--| Epoch[4] 0.038s, Current batch loss: 0.311491, acc: 100.000%
+|>>>>>>>>>>| Epoch[4] 0.005s, Current batch loss: 0.306869, acc: 100.000%
+Sum: Epoch[4], Avg loss: 0.843294, Avg acc 50.014%
+|>>--------| Epoch[5] 0.006s, Current batch loss: 1.382223, acc: 0.000%
+|>>>>------| Epoch[5] 0.005s, Current batch loss: 1.377875, acc: 0.000%
+|>>>>>>----| Epoch[5] 0.006s, Current batch loss: 0.623574, acc: 65.625%
+|>>>>>>>>--| Epoch[5] 0.034s, Current batch loss: 0.306503, acc: 100.000%
+|>>>>>>>>>>| Epoch[5] 0.006s, Current batch loss: 0.302024, acc: 100.000%
+Sum: Epoch[5], Avg loss: 0.843095, Avg acc 50.016%
+Test:1, Loss:0.336995, Acc:100.000%
+|>>--------| Epoch[6] 0.005s, Current batch loss: 1.386908, acc: 0.000%
+|>>>>------| Epoch[6] 0.005s, Current batch loss: 1.384499, acc: 0.000%
+|>>>>>>----| Epoch[6] 0.005s, Current batch loss: 0.877953, acc: 50.000%
+|>>>>>>>>--| Epoch[6] 0.023s, Current batch loss: 0.310205, acc: 100.000%
+|>>>>>>>>>>| Epoch[6] 0.006s, Current batch loss: 0.307959, acc: 100.000%
+Sum: Epoch[6], Avg loss: 0.843322, Avg acc 50.014%
+|>>--------| Epoch[7] 0.006s, Current batch loss: 1.378021, acc: 0.000%
+|>>>>------| Epoch[7] 0.005s, Current batch loss: 1.378925, acc: 0.000%
+|>>>>>>----| Epoch[7] 0.005s, Current batch loss: 0.753078, acc: 56.250%
+|>>>>>>>>--| Epoch[7] 0.047s, Current batch loss: 0.304304, acc: 100.000%
+|>>>>>>>>>>| Epoch[7] 0.005s, Current batch loss: 0.314586, acc: 100.000%
+Sum: Epoch[7], Avg loss: 0.843165, Avg acc 50.014%
+|>>--------| Epoch[8] 0.005s, Current batch loss: 1.380647, acc: 0.000%
+|>>>>------| Epoch[8] 0.005s, Current batch loss: 1.379233, acc: 0.000%
+|>>>>>>----| Epoch[8] 0.005s, Current batch loss: 0.826088, acc: 53.125%
+|>>>>>>>>--| Epoch[8] 0.041s, Current batch loss: 0.305487, acc: 100.000%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.306280, acc: 100.000%
+Sum: Epoch[8], Avg loss: 0.843342, Avg acc 50.018%
+|>>--------| Epoch[9] 0.005s, Current batch loss: 1.378754, acc: 0.000%
+|>>>>------| Epoch[9] 0.005s, Current batch loss: 1.380642, acc: 0.000%
+|>>>>>>----| Epoch[9] 0.005s, Current batch loss: 0.852551, acc: 46.875%
+|>>>>>>>>--| Epoch[9] 0.036s, Current batch loss: 0.308924, acc: 100.000%
+|>>>>>>>>>>| Epoch[9] 0.007s, Current batch loss: 0.310239, acc: 100.000%
+Sum: Epoch[9], Avg loss: 0.843349, Avg acc 50.014%
+
+6:
+Start training...
+|>>--------| Epoch[0] 0.005s, Current batch loss: 1.244174, acc: 3.125%
+|>>>>------| Epoch[0] 0.005s, Current batch loss: 1.251485, acc: 0.000%
+|>>>>>>----| Epoch[0] 0.006s, Current batch loss: 0.869613, acc: 53.125%
+|>>>>>>>>--| Epoch[0] 0.033s, Current batch loss: 0.406428, acc: 93.750%
+|>>>>>>>>>>| Epoch[0] 0.005s, Current batch loss: 0.388794, acc: 96.875%
+Sum: Epoch[0], Avg loss: 0.822911, Avg acc 49.974%
+Test:0, Loss:0.503383, Acc:100.000%
+|>>--------| Epoch[1] 0.006s, Current batch loss: 1.242865, acc: 0.000%
+|>>>>------| Epoch[1] 0.006s, Current batch loss: 1.250931, acc: 9.375%
+|>>>>>>----| Epoch[1] 0.006s, Current batch loss: 0.691437, acc: 62.500%
+|>>>>>>>>--| Epoch[1] 0.029s, Current batch loss: 0.397881, acc: 96.875%
+|>>>>>>>>>>| Epoch[1] 0.005s, Current batch loss: 0.391537, acc: 100.000%
+Sum: Epoch[1], Avg loss: 0.822782, Avg acc 50.032%
+|>>--------| Epoch[2] 0.005s, Current batch loss: 1.246642, acc: 0.000%
+|>>>>------| Epoch[2] 0.005s, Current batch loss: 1.245063, acc: 0.000%
+|>>>>>>----| Epoch[2] 0.005s, Current batch loss: 0.603326, acc: 59.375%
+|>>>>>>>>--| Epoch[2] 0.035s, Current batch loss: 0.390814, acc: 96.875%
+|>>>>>>>>>>| Epoch[2] 0.005s, Current batch loss: 0.398144, acc: 96.875%
+Sum: Epoch[2], Avg loss: 0.822514, Avg acc 49.954%
+|>>--------| Epoch[3] 0.005s, Current batch loss: 1.235099, acc: 0.000%
+|>>>>------| Epoch[3] 0.005s, Current batch loss: 1.242711, acc: 6.250%
+|>>>>>>----| Epoch[3] 0.005s, Current batch loss: 0.679487, acc: 56.250%
+|>>>>>>>>--| Epoch[3] 0.036s, Current batch loss: 0.399106, acc: 93.750%
+|>>>>>>>>>>| Epoch[3] 0.005s, Current batch loss: 0.399293, acc: 100.000%
+Sum: Epoch[3], Avg loss: 0.822803, Avg acc 49.942%
+|>>--------| Epoch[4] 0.005s, Current batch loss: 1.254004, acc: 3.125%
+|>>>>------| Epoch[4] 0.005s, Current batch loss: 1.232833, acc: 3.125%
+|>>>>>>----| Epoch[4] 0.005s, Current batch loss: 0.811973, acc: 59.375%
+|>>>>>>>>--| Epoch[4] 0.036s, Current batch loss: 0.409495, acc: 100.000%
+|>>>>>>>>>>| Epoch[4] 0.005s, Current batch loss: 0.395646, acc: 90.625%
+Sum: Epoch[4], Avg loss: 0.822898, Avg acc 50.060%
+|>>--------| Epoch[5] 0.005s, Current batch loss: 1.254873, acc: 0.000%
+|>>>>------| Epoch[5] 0.005s, Current batch loss: 1.246449, acc: 3.125%
+|>>>>>>----| Epoch[5] 0.006s, Current batch loss: 0.643508, acc: 62.500%
+|>>>>>>>>--| Epoch[5] 0.029s, Current batch loss: 0.390326, acc: 96.875%
+|>>>>>>>>>>| Epoch[5] 0.006s, Current batch loss: 0.391561, acc: 100.000%
+Sum: Epoch[5], Avg loss: 0.822964, Avg acc 49.988%
+Test:1, Loss:0.489257, Acc:100.000%
+|>>--------| Epoch[6] 0.005s, Current batch loss: 1.241853, acc: 3.125%
+|>>>>------| Epoch[6] 0.005s, Current batch loss: 1.261141, acc: 0.000%
+|>>>>>>----| Epoch[6] 0.005s, Current batch loss: 0.710474, acc: 53.125%
+|>>>>>>>>--| Epoch[6] 0.037s, Current batch loss: 0.404472, acc: 100.000%
+|>>>>>>>>>>| Epoch[6] 0.005s, Current batch loss: 0.381665, acc: 96.875%
+Sum: Epoch[6], Avg loss: 0.822883, Avg acc 50.038%
+|>>--------| Epoch[7] 0.005s, Current batch loss: 1.250841, acc: 6.250%
+|>>>>------| Epoch[7] 0.005s, Current batch loss: 1.248277, acc: 3.125%
+|>>>>>>----| Epoch[7] 0.005s, Current batch loss: 0.743463, acc: 50.000%
+|>>>>>>>>--| Epoch[7] 0.040s, Current batch loss: 0.383582, acc: 96.875%
+|>>>>>>>>>>| Epoch[7] 0.005s, Current batch loss: 0.391133, acc: 90.625%
+Sum: Epoch[7], Avg loss: 0.822685, Avg acc 50.068%
+|>>--------| Epoch[8] 0.005s, Current batch loss: 1.243358, acc: 0.000%
+|>>>>------| Epoch[8] 0.005s, Current batch loss: 1.257613, acc: 6.250%
+|>>>>>>----| Epoch[8] 0.006s, Current batch loss: 0.784051, acc: 43.750%
+|>>>>>>>>--| Epoch[8] 0.021s, Current batch loss: 0.392264, acc: 93.750%
+|>>>>>>>>>>| Epoch[8] 0.005s, Current batch loss: 0.393762, acc: 96.875%
+Sum: Epoch[8], Avg loss: 0.822816, Avg acc 50.050%
+|>>--------| Epoch[9] 0.005s, Current batch loss: 1.257636, acc: 9.375%
+|>>>>------| Epoch[9] 0.005s, Current batch loss: 1.245624, acc: 3.125%
+|>>>>>>----| Epoch[9] 0.005s, Current batch loss: 0.892244, acc: 43.750%
+|>>>>>>>>--| Epoch[9] 0.048s, Current batch loss: 0.396727, acc: 93.750%
+|>>>>>>>>>>| Epoch[9] 0.006s, Current batch loss: 0.392410, acc: 93.750%
+Sum: Epoch[9], Avg loss: 0.822636, Avg acc 50.124%

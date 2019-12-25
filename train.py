@@ -87,6 +87,7 @@ def main(args):
     model = model_selector(args.model_code)
     prediction, _ = model.net(input=image, class_dim=2)
     loss = fluid.layers.cross_entropy(input=prediction, label=label)
+    # find average over all images inside a batch
     loss = fluid.layers.mean(loss)
     accuracy = fluid.layers.accuracy(input=prediction, label=label)
     train_program = compiler.CompiledProgram(fluid.default_main_program()).with_data_parallel(loss_name=loss.name)
@@ -141,9 +142,6 @@ def main(args):
                                             fetch_list=[loss, accuracy])  
                 test_accs.append(test_acc[0])                                        
                 test_costs.append(test_loss[0])                                      
-
-            #test_loss = (sum(test_costs) / len(test_costs))                           
-            #test_acc = (sum(test_accs) / len(test_accs))                              
             print('Test:%d, Loss:%0.6f, Acc:%0.3f%%' % (pass_id / 5, np.mean(test_loss), 100.0*np.mean(test_acc)), flush=True)
         # save model every 2 epochs
         if pass_id % 2 == 0:
