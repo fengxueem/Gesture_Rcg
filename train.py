@@ -8,6 +8,7 @@ import paddle.fluid as fluid
 import paddle.fluid.compiler as compiler
 from squeezenet import SqueezeNet
 from squeezenet_prun_a import SqueezeNetPrunA
+from gesiannet import GesianNet
 import time
 
 # global variables
@@ -78,6 +79,7 @@ def model_selector(model_code):
     return {
             'squeezenet': SqueezeNet(), # default
             'squeezenet_prun_a': SqueezeNetPrunA(),
+            'gesiannet': GesianNet(),
     }.get(model_code, SqueezeNet())
 
 def main(args):
