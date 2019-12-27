@@ -34,14 +34,14 @@ class SqueezeNetPrunA():
                 filter_size=3,
                 stride=2,
                 padding=1,
-                act='relu',
                 param_attr=fluid.ParamAttr(name='conv1_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
                 bias_attr=ParamAttr(name='conv1_b'))
         conv1_bn_w_attr = fluid.ParamAttr(name='conv1_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv1_bn_b_attr = fluid.ParamAttr(name='conv1_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
         conv1_bn = fluid.layers.batch_norm(input=conv_1, param_attr=conv1_bn_w_attr, bias_attr=conv1_bn_b_attr)
+        conv1_bn_relu = fluid.layers.relu(conv1_bn, name='conv1_bn_relu')
         pool_1 = fluid.layers.pool2d(
-                conv1_bn, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
+                conv1_bn_relu, pool_size=3, pool_stride=2, pool_padding=1, pool_type='max')
         conv = self.make_fire(pool_1, 8, 32, 32, name='fire2')
         conv = self.make_fire(conv, 8, 32, 32, name='fire3')
         pool_2 = fluid.layers.pool2d(
@@ -59,13 +59,13 @@ class SqueezeNetPrunA():
             conv,
             num_filters=class_dim,
             filter_size=1,
-            act='relu',
             param_attr=fluid.ParamAttr(name='conv10_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
             bias_attr=ParamAttr(name='conv10_b'))
         conv10_bn_w_attr = fluid.ParamAttr(name='conv10_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv10_bn_b_attr = fluid.ParamAttr(name='conv10_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
-        conv = fluid.layers.batch_norm(input=conv, param_attr=conv10_bn_w_attr, bias_attr=conv10_bn_b_attr)
-        pool_4 = fluid.layers.pool2d(conv, pool_type='avg', global_pooling=True)
+        conv10_bn = fluid.layers.batch_norm(input=conv, param_attr=conv10_bn_w_attr, bias_attr=conv10_bn_b_attr)
+        conv10_bn_relu = fluid.layers.relu(conv10_bn, name='conv1_bn_relu')
+        pool_4 = fluid.layers.pool2d(conv10_bn_relu, pool_type='avg', global_pooling=True)
         pool_4_flat = fluid.layers.flatten(pool_4)
         out = fluid.layers.softmax(input=pool_4_flat)
         return out, conv
@@ -82,12 +82,12 @@ class SqueezeNetPrunA():
             num_filters=num_filters,
             filter_size=filter_size,
             padding=padding,
-            act='relu',
             param_attr=conv_attr,
             bias_attr=ParamAttr(name=name + '_b'))
         bn_w_attr = fluid.ParamAttr(name=name + '_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         bn_b_attr = fluid.ParamAttr(name=name + '_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
         conv = fluid.layers.batch_norm(input=conv, param_attr=bn_w_attr, bias_attr=bn_b_attr)
+        conv = fluid.layers.relu(conv, name=name + '_bn_relu')
         return conv
 
     def make_fire(self,
@@ -115,7 +115,7 @@ if __name__ == '__main__':
     print(layer.shape)
     exe = fluid.Executor(fluid.CPUPlace())
     exe.run(fluid.default_startup_program())
-    model_path = "./model"
+    model_path = "./model/squeezenet_prun_a/0"
     fluid.io.save_inference_model(dirname=model_path, feeded_var_names=[image.name], target_vars=[net], executor=exe)
     # To see the model graph(no tensor dimension info)
     # 1.run visualdl --model_pb ./model --logdir ./ in terminal
