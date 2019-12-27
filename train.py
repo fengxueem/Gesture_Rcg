@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from datetime import datetime
 import math
 from multiprocessing import cpu_count
 import numpy as np
@@ -111,6 +112,8 @@ def main(args):
     test_data_reader = test_reader(args.test_list_path, batch_size)
     epoch = int(args.epoch)
     print('Start training...', flush=True)
+    # date and time
+    today_str = datetime.now().strftime("%y%m%d%H%M%S")
     for pass_id in range(epoch):
         train_loss = 0
         train_loss_list = []
@@ -147,7 +150,8 @@ def main(args):
             print('Test:%d, Loss:%0.6f, Acc:%0.3f%%' % (pass_id / 5, np.mean(test_loss), 100.0*np.mean(test_acc)), flush=True)
         # save model every 2 epochs
         if pass_id % 2 == 0:
-            model_save_dir = args.model_save_path
+            model_save_dir = os.path.join(args.model_save_path, args.model_code)
+            model_save_dir = os.path.join(model_save_dir, today_str)
             if not os.path.exists(model_save_dir):
                 os.makedirs(model_save_dir)
             fluid.io.save_inference_model(dirname=model_save_dir, 
