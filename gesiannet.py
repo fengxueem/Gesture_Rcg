@@ -18,7 +18,7 @@ class GesianNet():
                 filter_size=3,
                 stride=1,
                 padding=1,
-                param_attr=fluid.ParamAttr(name='conv1_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
+                param_attr=fluid.ParamAttr(name='conv1_w', initializer=fluid.initializer.Xavier(uniform=False)),
                 bias_attr=ParamAttr(name='conv1_b'))
         conv1_bn_w_attr = fluid.ParamAttr(name='conv1_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv1_bn_b_attr = fluid.ParamAttr(name='conv1_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
@@ -39,7 +39,7 @@ class GesianNet():
             num_filters=class_dim,
             filter_size=1,
             act='relu',
-            param_attr=fluid.ParamAttr(name='conv8_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0)),
+            param_attr=fluid.ParamAttr(name='conv8_w', initializer=fluid.initializer.Xavier(uniform=False)),
             bias_attr=ParamAttr(name='conv8_b'))
         conv8_bn_w_attr = fluid.ParamAttr(name='conv8_bn_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv8_bn_b_attr = fluid.ParamAttr(name='conv8_bn_b', initializer=fluid.initializer.Xavier(uniform=False))
@@ -55,7 +55,7 @@ class GesianNet():
                        filter_size,
                        padding=0,
                        name=None):
-        conv_attr = fluid.ParamAttr(name=name + '_w', initializer=fluid.initializer.Normal(loc=0.0, scale=1.0))
+        conv_attr = fluid.ParamAttr(name=name + '_w', initializer=fluid.initializer.Xavier(uniform=False))
         conv = fluid.layers.conv2d(
             input,
             num_filters=num_filters,
